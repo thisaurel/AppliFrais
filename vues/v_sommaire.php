@@ -1,4 +1,11 @@
-﻿    <!-- Division pour le sommaire -->
+﻿<?php
+
+
+$isComptable=$pdo->isComptable($_SESSION['idVisiteur']);
+
+
+?>
+    <!-- Division pour le sommaire -->
     <div id="menuGauche">
      <div id="infosUtil">
     
@@ -20,6 +27,15 @@
            </li>
  	   <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
+           </li>
+           <li class="smenu">
+           <?php
+  
+   if($isComptable  )
+    
+
+?>
+           <?= '<pre>' . print_r($_SESSION, TRUE) . '</pre>'?>
            </li>
          </ul>
         

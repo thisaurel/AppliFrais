@@ -288,6 +288,7 @@ class PdoGsb{
 	
 		return $laLigne;
 	}
+
 /**
  * Modifie l'état et la date de modification d'une fiche de frais
  
@@ -301,5 +302,24 @@ class PdoGsb{
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
 	}
+
+
+
+	public function isComptable($idVisiteur){
+		$idVisiteur = htmlspecialchars($idVisiteur);
+		$req = "SELECT * FROM visiteur WHERE id = '.$idVisiteur.'";
+
+		$res = PdoGsb::$monPdo->query($req);
+
+		$isComptable = $res->fetchAll();
+
+
+		var_dump($idVisiteur);
+
+		var_dump($isComptable);
+
+		return $isComptable["comptable"];
+	}
+
 }
 ?>
