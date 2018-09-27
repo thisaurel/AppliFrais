@@ -12,6 +12,7 @@ switch($action){
 		}
 		break;
 	}
+	
 	case 'validerMajFraisForfait':{
 		$lesFrais = $_REQUEST['lesFrais'];
 		if(lesQteFraisValides($lesFrais)){
