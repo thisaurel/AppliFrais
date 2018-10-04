@@ -6,6 +6,24 @@ $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
 switch($action){
+	case 'validerFicheFrais':{
+		$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);
+		$data=$pdo->infoFiches();
+		 
+ 		foreach($data as $k){
+			echo $k .'<br>';
+		}
+ 		$lesCles = array_keys( $lesMois );
+		
+		if(!isset($lesCles[0])){
+			echo "Aucune fiche de frais...";
+			break;
+		}
+		
+		$moisASelectionner = $lesCles[0];
+		include("vues/v_validerFicheFrais.php");
+		break;
+	}
 	case 'saisirFrais':{
 		if($pdo->estPremierFraisMois($idVisiteur,$mois)){
 			$pdo->creeNouvellesLignesFrais($idVisiteur,$mois);

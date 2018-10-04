@@ -323,5 +323,13 @@ class PdoGsb{
 
 	}
 
+	public function infoFiches(){
+		$req = "SELECT * FROM  fichefrais";		
+		$res = PdoGsb::$monPdo->query($req);
+		$laLigne = $res->fetch();
+	
+	return $laLigne;
+	}
+
 }
 ?>
