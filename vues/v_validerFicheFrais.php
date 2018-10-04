@@ -3,9 +3,6 @@
 
       <form action="index.php?uc=etatFrais&action=voirEtatFrais" method="post">
 
-
-
-
 <div class="flex-wrapper">
 <div class="select">
 <label for="lstMois" accesskey="n">Mois : </label>
