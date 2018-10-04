@@ -6,8 +6,7 @@
           
           <fieldset>
             <legend>Eléments forfaitisés
-            </legend>
-
+          </legend>
 
             
 			<?php
@@ -25,9 +24,6 @@
 			<?php
 				}
 			?>
-			
-			
-			
 			
            
           </fieldset>

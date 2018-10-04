@@ -1,7 +1,7 @@
 ﻿<?php
 
 
-$isComptable=$pdo->isComptable($_SESSION['idVisiteur']);
+$isComptable = $pdo->isComptable($_SESSION['idVisiteur']);
 
 
 ?>
