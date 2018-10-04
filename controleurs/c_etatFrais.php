@@ -19,6 +19,32 @@ switch($action){
 		include("vues/v_listeMois.php");
 		break;
 	}
+
+	case 'validerFichesFrais':{
+		$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);
+		$data=$pdo->infoFiches();
+		 
+
+		foreach($data as $k){
+			echo $k .'<br>';
+		}
+
+		$lesCles = array_keys( $lesMois );
+		
+		if(!isset($lesCles[0])){
+			echo "Aucune fiche de frais...";
+			break;
+		}
+		
+		$moisASelectionner = $lesCles[0];
+		include("vues/v_validerFicheFrais.php");
+		break;
+	}
+
+
+
+
+
 	case 'voirEtatFrais':{
 		$leMois = $_REQUEST['lstMois']; 
 		$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);

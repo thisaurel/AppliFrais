@@ -307,18 +307,27 @@ class PdoGsb{
 
 	public function isComptable($idVisiteur){
 		$idVisiteur = htmlspecialchars($idVisiteur);
-		$req = "SELECT * FROM visiteur WHERE id = '.$idVisiteur.'";
+		$req = "SELECT * FROM visiteur v WHERE v.id = '$idVisiteur'";
+		$res = PdoGsb::$monPdo->query($req);		
+		$laLigne = $res->fetch();
+		if($laLigne["comptable"] == 1){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
+
+
+
+
+	public function infoFiches(){
+		$req = "SELECT * FROM  fichefrais";		
 		$res = PdoGsb::$monPdo->query($req);
+		$laLigne = $res->fetch();
+	
 
-		$isComptable = $res->fetchAll();
-
-
-		var_dump($idVisiteur);
-
-		var_dump($isComptable);
-
-		return $isComptable["comptable"];
+	return $laLigne;
 	}
 
 }
