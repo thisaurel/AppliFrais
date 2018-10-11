@@ -13,8 +13,6 @@ switch($action){
 	}
 	case 'afficheFrais':{
 		$va = 1;
-		$_SESSION['idVisiteur'] = $_GET['idVisiteur'];
-		$_SESSION['mois'] = $_GET['mois'];
 		break;
 	}
 	case 'saisirFrais':{
@@ -54,8 +52,6 @@ switch($action){
 		$numMois =substr( $mois,4,2);
 		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
 		$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
-		$_SESSION['idVisiteur'] = $_GET['idVisiteur'];
-		$_SESSION['mois'] = $_GET['mois'];
 		$idFrais = $_REQUEST['idFrais'];
 	    $pdo->supprimerFraisHorsForfait($idFrais);
 		break;
