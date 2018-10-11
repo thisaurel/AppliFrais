@@ -3,7 +3,18 @@ $affiche = $pdo->selectVisiteur();
 ?>
 <body>
 <h2> Voici la liste des visiteurs Cloturé (CL) : </h2><br/>
-<table border="unset">
+<style>
+
+#contenu{
+  min-height: 0;
+  border-left: none;
+}
+
+</style>
+<div id="contenu" style="margin-top: -20px;">
+
+<table class="listeLegere">
+<tbody>
 	<tr>
 		<th> Code visiteur</th>
 		<th> Nom</th>
@@ -26,8 +37,9 @@ $time = $mois."/".$annee; // Concaténation des deux variables
 
 	</tr>
 <?php	} ?>
-
+</tbody>
+	
 </table>
 
-<br><br>
+</div>
 </body>

@@ -1,19 +1,18 @@
 ﻿<style>
 
-.encadre{
-  padding-left: 50px;
-  padding-bottom: 25px;
-  padding-top: 5px;
+#contenu{
+  min-height: 0;
+  border-left: none;
 }
 
 </style>
-<div class="encadre">
+<div id="contenu" style="margin-top: -35px;">
 <h3>Fiche de hors frais du mois <?php echo $numMois."-".$numAnnee?> : </h3>
 <?php
 $fraishorsforfait = $pdo->selectlignefraishorsforfait();
 ?>
 <body>
-<table border="unset">
+<table class="listeLegere">
   <tr>
     <th> code visiteur</th>
     <th> Mois</th>
