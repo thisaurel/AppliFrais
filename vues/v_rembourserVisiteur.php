@@ -1,5 +1,6 @@
 <?php
 $affiche = $pdo->selectVisiteurValidation();
+
 ?>
 <body>
     <h2>Voici la liste des visiteurs Validé (VA) : </h2><br>
@@ -13,6 +14,12 @@ $affiche = $pdo->selectVisiteurValidation();
 </style>
 <div id="contenu" style="margin-top: -20px;">
 
+<?php
+
+if(!empty($affiche)){
+    ?>
+
+    
 <table class="listeLegere">
 <tbody>
 	<tr>
@@ -43,6 +50,14 @@ $_SESSION['tmp_sess'] = $value['id'];
 </tbody>
 	
 </table>
+
+    <?php
+} else {
+    echo "Aucune fiche en attente d'un remboursement";
+}
+
+?>
+
 
 </div>
 </body>

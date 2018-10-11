@@ -13,6 +13,12 @@ $affiche = $pdo->selectVisiteur();
 </style>
 <div id="contenu" style="margin-top: -20px;">
 
+<?php
+
+if(!empty($affiche)){
+    ?>
+
+
 <table class="listeLegere">
 <tbody>
 	<tr>
@@ -49,6 +55,15 @@ $time = $mois."/".$annee; // Concaténation des deux variables
 </tbody>
 	
 </table>
+
+
+    <?php
+} else {
+    echo "Aucune fiche en attente d'un remboursement";
+}
+
+?>
+
 
 </div>
 </body>
