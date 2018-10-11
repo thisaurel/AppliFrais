@@ -47,7 +47,7 @@ switch($action){
 		break;
 	}
 	case 'validerFicheFrais':{
-		$id = $_SESSION['tmp_sess'];
+		$id = $_GET['idUser'];
 		$pdo->miseAjourFicheFraisValidation($id);
 		header('Location: index.php?uc=validerFicheFrais&action=choisirVisiteur');
 		break;

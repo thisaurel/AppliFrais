@@ -358,9 +358,11 @@ class PdoGsb{
 
 	public function miseAjourFicheFraisValidation($id){
 		$idV = htmlspecialchars($id);
+		var_dump($idV);
 		$value = "VA";
 		$req = "UPDATE fichefrais SET idEtat = '$value' WHERE idVisiteur = '$idV'";
 		PdoGsb::$monPdo->exec($req);
+		//die();
 	}
 
 	public function RemboursementFicheFrais($id){
