@@ -314,5 +314,15 @@ class PdoGsb{
 			return $lesLignes2;
 		}
 	}
+
+	public function selectlignefraisforfait(){
+		if(isset($_GET['idVisiteur']) && !empty($_GET['idVisiteur'])){
+			$idV = htmlspecialchars($_GET['idVisiteur']);
+			$req2 = "SELECT * FROM lignefraisforfait lff INNER JOIN fraisforfait ff ON lff.idFraisForfait = ff.id  WHERE idVisiteur = '$idV'";
+			$res2 = PdoGsb::$monPdo->query($req2);
+			$lesLignes2 = $res2->fetchAll();
+			return $lesLignes2;
+		}
+	}
 }
 ?>
