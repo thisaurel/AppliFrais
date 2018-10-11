@@ -34,4 +34,3 @@
          <input type='reset' value='Annuler' name='annuler'>
 
 </form>
-?>
