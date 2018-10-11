@@ -9,7 +9,7 @@
       </div>  
         <ul id="menuList">
 			<li >
-				  Comptable : <br>
+				 <p>Bonjour Comptable : <br></p>  
 				<?php echo $_SESSION['prenom']."  ".$_SESSION['nom']  ?>
 			</li>
            <li class="smenu">

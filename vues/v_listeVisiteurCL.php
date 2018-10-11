@@ -23,11 +23,11 @@ $time = $mois."/".$annee; // Concaténation des deux variables
 		<td><?= $time;?></td>
 		<td><a style="text-decoration: none;" href="index.php?uc=validerFicheFrais&action=afficheFrais&idVisiteur=
 			<?= $value['id'].'&mois='.$value['mois']; ?>">Détails des fiches de frais </a> </td>
-		<!-- index.php?choisirVisiteurCL.php -->
+
 	</tr>
 <?php	} ?>
 
 </table>
 
-
+<br><br>
 </body>
