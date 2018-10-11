@@ -42,7 +42,7 @@ $_SESSION['tmp_sess'] = $value['id'];
 		<td><?= $time;?></td>
         <td>        
 		<a href="index.php?uc=rembourserFicheFrais&action=remboursementFiche&idUser=<?= $value['id']; ?>" 
-				onclick="return confirm('Voulez-vous vraiment valider cette fiche de frais');">Rembourser fiche</a>
+				onclick="return confirm('Voulez-vous vraiment rembourser cette fiche de frais');">Rembourser fiche</a>
 		</td>
 
 	</tr>
