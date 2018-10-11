@@ -69,34 +69,32 @@ $time = $mois."/".$annee; // Concaténation des deux variables
 $fraisforfait = $pdo->selectlignefraisforfait();
 ?>
 
-<table class="listeLegere">
-  <tr>
-    <th> Code Visiteur</th>
-    <th> Mois</th>
-    <th> Libelle</th>
-    <th> Quantite </th>
-    
-  </tr>
-<?php foreach ($fraisforfait as $value){
+<form method="POST" action="index.php?uc=validerFicheFrais&action=validerMajFraisForfait&idVisiteur=<?= $_GET['idVisiteur'] ?>&mois=<?= $_GET['mois'] ?>">
+      <div class="corpsForm">
+          
+			<?php
+				foreach ($fraisforfait as $unFrais)
+				{
+          $idFrais = $unFrais['idFraisForfait'];
+					$libelle = $unFrais['libelle'];
+					$quantite = $unFrais['quantite'];
+			?>
+					<p>
+						<label for="idFrais"><?= $libelle ?></label>
+						<input type="text" id="idFrais" name="lesFrais[<?= $idFrais?>]" size="10" maxlength="5" value="<?= $quantite ?>" >
+					</p>
+			
+			<?php
+				}
+			?>
+           
+      </div>
+      <p>
+        <input id="ok" type="submit" value="Confirmer les modifications" size="20" />
+      </p> 
+        
+      </form>
 
-$annee = substr ($value['mois'], 0, 4); // Sous-chaîne de la valeur mois, mis dans année en prenant les 4 premiers caractères
-$mois = substr ($value['mois'], 4, 2); // Sous-chaîne de la valeur mois, mis dans mois en prenant les 2 derniers caractères
-$time = $mois."/".$annee; // Concaténation des deux variables
-$_SESSION['tmp_sess'] = $value['idVisiteur'];
-
-?>
-  <tr>
-    <td><?= $value['idVisiteur']; ?></td>
-    <td><?= $value['mois']; ?></td>
-    <td><?= $value['libelle']; ?></td>
-    <td><?= $value['quantite']; ?></td>
-  </tr>
-
-
-  
-<?php } ?>
-
-</table>
 <br>
 
 

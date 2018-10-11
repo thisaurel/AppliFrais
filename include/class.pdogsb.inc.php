@@ -148,6 +148,29 @@ class PdoGsb{
 		}
 		
 	}
+   /**
+	* @param $idVisiteur 
+	* @param $mois sous la forme aaaamm
+	* @param $lesFrais tableau associatif de clé idFrais et de valeur la quantité pour ce frais
+	* @return un tableau associatif 
+   */
+	public function majFraisForfaitComptable($idVisiteur, $mois, $lesFrais){
+		$lesCles = array_keys($lesFrais);
+
+		foreach($lesCles as $unIdFrais){
+
+			$idVisiteur = $_GET['idVisiteur'];
+			$mois = $_GET['mois'];
+			$qte = $lesFrais[$unIdFrais];
+
+			$req = "UPDATE lignefraisforfait SET quantite = '$qte' WHERE idVisiteur = '$idVisiteur' AND mois = '$mois' AND idFraisForfait = '$unIdFrais'";
+			PdoGsb::$monPdo->exec($req);
+
+			
+		}
+		//die();
+		
+	}
 /**
  * met à jour le nombre de justificatifs de la table ficheFrais
  * pour le mois et le visiteur concerné

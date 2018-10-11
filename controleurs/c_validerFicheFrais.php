@@ -21,17 +21,6 @@ switch($action){
 		}
 		break;
 	}
-	case 'validerMajFraisForfait':{
-		$lesFrais = $_REQUEST['lesFrais'];
-		if(lesQteFraisValides($lesFrais)){
-	  	 	$pdo->majFraisForfait($idVisiteur,$mois,$lesFrais);
-		}
-		else{
-			ajouterErreur("Les valeurs des frais doivent être numériques");
-			include("vues/v_erreurs.php");
-		}
-	  break;
-	}
 	case 'validerCreationFrais':{
 		$dateFrais = $_REQUEST['dateFrais'];
 		$libelle = $_REQUEST['libelle'];
@@ -61,6 +50,17 @@ switch($action){
 		$id = $_SESSION['tmp_sess'];
 		$pdo->miseAjourFicheFraisValidation($id);
 		header('Location: index.php?uc=validerFicheFrais&action=choisirVisiteur');
+		break;
+	}
+	case 'validerMajFraisForfait':{
+		$lesFrais = $_REQUEST['lesFrais'];
+		if(lesQteFraisValides($lesFrais)){
+			   $pdo->majFraisForfaitComptable($_GET['idVisiteur'], $mois, $lesFrais);
+			   header('Location: index.php?uc=validerFicheFrais&action=afficheFrais&idVisiteur='.$_GET['idVisiteur'].'&mois='.$mois);
+		} else{
+			ajouterErreur("Les valeurs des frais doivent être numériques");
+			include("vues/v_erreurs.php");
+		}
 		break;
 	}
 }
