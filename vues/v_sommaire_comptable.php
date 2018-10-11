@@ -17,7 +17,7 @@
            </li>
        
            <li class="smenu">
-              <a href="index.php?uc=validerFicheFrais&action=RembourserVisiteur" title="Rembourser fiche de frais ">Rembourser fiche de frais</a>
+              <a href="index.php?uc=rembourserFicheFrais&action=RembourserVisiteur" title="Rembourser fiche de frais ">Rembourser fiche de frais</a>
            </li>
 
           <li class="smenu">

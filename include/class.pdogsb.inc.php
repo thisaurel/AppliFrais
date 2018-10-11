@@ -305,6 +305,13 @@ class PdoGsb{
 		return $lesLignes;
 	}
 
+	public function selectVisiteurValidation(){
+		$req = "SELECT * FROM visiteur,fichefrais WHERE idEtat ='VA' AND visiteur.id = fichefrais.idvisiteur  " ;
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes;
+	}
+
 	public function selectlignefraishorsforfait(){
 		if(isset($_GET['idVisiteur']) && !empty($_GET['idVisiteur'])){
 			$idV = htmlspecialchars($_GET['idVisiteur']);
@@ -328,6 +335,13 @@ class PdoGsb{
 	public function miseAjourFicheFraisValidation($id){
 		$idV = htmlspecialchars($id);
 		$value = "VA";
+		$req = "UPDATE fichefrais SET idEtat = '$value' WHERE idVisiteur = '$idV'";
+		PdoGsb::$monPdo->exec($req);
+	}
+
+	public function RemboursementFicheFrais($id){
+		$idV = htmlspecialchars($id);
+		$value = "RB";
 		$req = "UPDATE fichefrais SET idEtat = '$value' WHERE idVisiteur = '$idV'";
 		PdoGsb::$monPdo->exec($req);
 	}
