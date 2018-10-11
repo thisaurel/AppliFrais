@@ -241,8 +241,8 @@ class PdoGsb{
  * @param $idFrais 
 */
 	public function supprimerFraisHorsForfait($idFrais){
-		$lib = " [SUPPRIMER]";
-		$req = "UPDATE lignefraishorsforfait SET libelle = concat(libelle, '$lib') WHERE id = '$idFrais'";
+		$lib = "[REFUSÉ] ";
+		$req = "UPDATE lignefraishorsforfait SET libelle = concat('$lib', libelle) WHERE id = '$idFrais'";
 		PdoGsb::$monPdo->exec($req);
 	}
 /**
