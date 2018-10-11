@@ -53,7 +53,8 @@ switch($action){
 		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
 		$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
 		$idFrais = $_REQUEST['idFrais'];
-	    $pdo->supprimerFraisHorsForfait($idFrais);
+		$pdo->supprimerFraisHorsForfait($idFrais);
+		header('Location: '. $_SERVER['HTTP_REFERER']);
 		break;
 	}
 	case 'validerFicheFrais':{
