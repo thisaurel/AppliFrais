@@ -19,6 +19,9 @@ switch($action){
 		include("vues/v_listeMois.php");
 		break;
 	}
+	case 'modifierEtatFrais':{
+		//include("vues/v_listeFraisForfaitComptable.php");
+		}
 	case 'voirEtatFrais':{
 		$leMois = $_REQUEST['lstMois']; 
 		$lesMois=$pdo->getLesMoisDisponibles($idVisiteur);
@@ -36,8 +39,5 @@ switch($action){
 		$dateModif =  dateAnglaisVersFrancais($dateModif);
 		include("vues/v_etatFrais.php");
 	}
-
-
-
 }
 ?>

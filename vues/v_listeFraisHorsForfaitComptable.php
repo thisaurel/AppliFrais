@@ -22,7 +22,7 @@
                 <td><?php echo $libelle ?></td>
                 <td><?php echo $montant ?></td>
                 <td><a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
-				onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce frais</a></td> 
+				onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce frais</a></td>
              </tr>
 	<?php		 
           

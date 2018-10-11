@@ -1,11 +1,22 @@
 <?php
-include("vues/v_sommaire.php");
+include("vues/v_sommaire_comptable.php");
 $idVisiteur = $_SESSION['idVisiteur'];
 $mois = getMois(date("d/m/Y"));
 $numAnnee =substr( $mois,0,4);
 $numMois =substr( $mois,4,2);
 $action = $_REQUEST['action'];
+$va = 0;
+
 switch($action){
+	case 'choisirVisiteur':{
+		break;
+	}
+	case 'afficheFrais':{
+		$va = 1;
+		$_SESSION['idVisiteur'] = $_GET['idVisiteur'];
+		$_SESSION['mois'] = $_GET['mois'];
+		break;
+	}
 	case 'saisirFrais':{
 		if($pdo->estPremierFraisMois($idVisiteur,$mois)){
 			$pdo->creeNouvellesLignesFrais($idVisiteur,$mois);
@@ -37,14 +48,33 @@ switch($action){
 		break;
 	}
 	case 'supprimerFrais':{
+		$idVisiteur = $_SESSION['idVisiteur'];
+		$mois = $_SESSION['mois'];
+		$numAnnee =substr( $mois,0,4);
+		$numMois =substr( $mois,4,2);
+		$lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
+		$lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
+		$_SESSION['idVisiteur'] = $_GET['idVisiteur'];
+		$_SESSION['mois'] = $_GET['mois'];
 		$idFrais = $_REQUEST['idFrais'];
 	    $pdo->supprimerFraisHorsForfait($idFrais);
 		break;
 	}
 }
+
+include("vues/v_listeVisiteurCL.php");
+
+if($va == 1){
+$idVisiteur = $_SESSION['idVisiteur'];
+$mois = $_SESSION['mois'];
+$numAnnee =substr( $mois,0,4);
+$numMois =substr( $mois,4,2);
 $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($idVisiteur,$mois);
 $lesFraisForfait= $pdo->getLesFraisForfait($idVisiteur,$mois);
-include("vues/v_listeFraisForfait.php");
-include("vues/v_listeFraisHorsForfait.php");
+
+
+include("vues/v_etatFraisComptable.php");
+}
+
 
 ?>

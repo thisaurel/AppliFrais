@@ -19,6 +19,12 @@ switch($uc){
 	case 'etatFrais' :{
 		include("controleurs/c_etatFrais.php");break; 
 	}
+	case 'validerFicheFrais':{
+		//rajouter ceci sinon pas d'appel de fonctions dans c_validerFicheFrais
+		//include("include/class.pdogsb.inc.php");
+		include("controleurs/c_validerFicheFrais.php");break; 
+	}
 }
 include("vues/v_pied.php") ;
 ?>
+
