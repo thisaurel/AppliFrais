@@ -16,7 +16,11 @@
               <a href="index.php?uc=validerFicheFrais&action=choisirVisiteur" title="Valider fiche de frais ">Valider fiche de frais</a>
            </li>
        
- 	   <li class="smenu">
+           <li class="smenu">
+              <a href="index.php?uc=validerFicheFrais&action=RembourserVisiteur" title="Rembourser fiche de frais ">Rembourser fiche de frais</a>
+           </li>
+
+          <li class="smenu">
               <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">Déconnexion</a>
            </li>
          </ul>

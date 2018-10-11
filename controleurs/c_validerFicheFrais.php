@@ -56,6 +56,12 @@ switch($action){
 	    $pdo->supprimerFraisHorsForfait($idFrais);
 		break;
 	}
+	case 'validerFicheFrais':{
+		$id = $_SESSION['tmp_sess'];
+		$pdo->miseAjourFicheFraisValidation($id);
+		header('Location: index.php?uc=validerFicheFrais&action=choisirVisiteur');
+		break;
+	}
 }
 
 include("vues/v_listeVisiteurCL.php");

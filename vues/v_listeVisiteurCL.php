@@ -20,7 +20,9 @@ $affiche = $pdo->selectVisiteur();
 		<th> Nom</th>
 		<th> Prenom</th>
 		<th> Date</th>
-		<th></th>
+		<th>Détails</th>
+		
+		<th> Validation </th>	
 	</tr>
 <?php foreach ($affiche as $value){
 $annee = substr ($value['mois'], 0, 4); // Sous-chaîne de la valeur mois, mis dans année en prenant les 4 premiers caractères
@@ -34,6 +36,13 @@ $time = $mois."/".$annee; // Concaténation des deux variables
 		<td><?= $time;?></td>
 		<td><a style="text-decoration: none;" href="index.php?uc=validerFicheFrais&action=afficheFrais&idVisiteur=
 			<?= $value['id'].'&mois='.$value['mois']; ?>">Détails des fiches de frais </a> </td>
+			<td>
+        
+		<a href="index.php?uc=validerFicheFrais&action=validerFicheFrais&idUser=<?= $value['id']; ?>" 
+				onclick="return confirm('Voulez-vous vraiment valider cette fiche de frais');">Valider fiche</a>
+		
+		
+				</td>
 
 	</tr>
 <?php	} ?>

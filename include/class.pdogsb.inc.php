@@ -324,5 +324,12 @@ class PdoGsb{
 			return $lesLignes2;
 		}
 	}
+
+	public function miseAjourFicheFraisValidation($id){
+		$idV = htmlspecialchars($id);
+		$value = "VA";
+		$req = "UPDATE fichefrais SET idEtat = '$value' WHERE idVisiteur = '$idV'";
+		PdoGsb::$monPdo->exec($req);
+	}
 }
 ?>
