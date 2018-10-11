@@ -39,9 +39,27 @@ $time = $mois."/".$annee; // Concaténation des deux variables
     <td><?= $value['libelle']; ?></td>
     <td><?= $value['date']; ?></td>
     <td><?= $value['montant']."€";?></td>
+
+    <?php
+
+    $var = $value['libelle'];
+
+    $rest = substr($var, 0, 9);
+
+    if($rest == "[REFUSÉ]"){
+
+    } else {
+?>
    <td><a href="index.php?uc=validerFicheFrais&action=supprimerFrais&idFrais=<?= $value['id'] ?>" 
         onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">Supprimer ce frais</a></td>
  
+<?php
+    }
+
+    ?>
+
+
+
   </tr>
 <?php } ?>
 </table>
