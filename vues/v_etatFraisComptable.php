@@ -5,8 +5,13 @@
   border-left: none;
 }
 
+#encadre{
+  border: 2px black;
+}
+
 </style>
 <div id="contenu" style="margin-top: -35px;">
+<hr>
 <h3>Fiche de hors-forfait du mois <?= $_GET['mois'] ?> de <?= $_GET['idVisiteur'] ?>: </h3>
 <?php
 $fraishorsforfait = $pdo->selectlignefraishorsforfait();
@@ -53,7 +58,7 @@ $fraisforfait = $pdo->selectlignefraisforfait();
     
   </tr>
 <?php foreach ($fraisforfait as $value){
-  
+
 $annee = substr ($value['mois'], 0, 4); // Sous-chaîne de la valeur mois, mis dans année en prenant les 4 premiers caractères
 $mois = substr ($value['mois'], 4, 2); // Sous-chaîne de la valeur mois, mis dans mois en prenant les 2 derniers caractères
 $time = $mois."/".$annee; // Concaténation des deux variables
@@ -66,8 +71,38 @@ $time = $mois."/".$annee; // Concaténation des deux variables
   </tr>
 <?php } ?>
 </table>
+<br>
 
+<style>
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	background-color:#bddbfa;
+	-moz-border-radius:16px;
+	-webkit-border-radius:16px;
+	border-radius:16px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:12px 57px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+.myButton:hover {
+	background-color:#80b5ea;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+} 
+</style>
 
+<a href="#" class="myButton">Valider fiche</a>
 
 </body>
   </div>
