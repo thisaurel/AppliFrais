@@ -22,7 +22,3 @@ switch($action){
 }
 
 include("vues/v_rembourserVisiteur.php");
-
-
-
-?>
